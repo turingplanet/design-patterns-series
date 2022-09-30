@@ -1,10 +1,10 @@
-public class MyClass implements Laptop {
+public class BasicLaptop implements Laptop {
 
     String cpu = "";
     int size = 0;
 
     public static void main(String args[]) {
-      System.out.println("Hello")
+      System.out.println("Hello");
     }
 
     public void startUp() {};

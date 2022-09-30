@@ -6,7 +6,7 @@ public class MacBookV1 {
     public static void main(String[] args) {
         System.out.println("Hello");   
     }
-	public MacBook(MacLaptopProperty p, MacLaptopFunction f) {
+	public MacBookV1(MacLaptopProperty p, MacLaptopFunction f) {
 		this.property = p;
 		this.function = f;
 	}
@@ -16,6 +16,7 @@ public class MacBookV1 {
 interface LaptopProperty {
 	String cpu = "";
 	int size = 0;
+	String resolution = "";
 }
 interface LaptopFunction {
 	void startUp();
@@ -25,11 +26,10 @@ interface LaptopFunction {
 class MacLaptopProperty implements LaptopProperty {
 	String cpu = "";
 	int size = 0;
-	Camera camera = new Camera();
+	String resolution = "";
 }
+
 class MacLaptopFunction implements LaptopFunction {
 	public void startUp() {};
 	public void shutDown() {};
 }
-
-class Camera {}

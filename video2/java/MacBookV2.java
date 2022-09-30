@@ -8,45 +8,43 @@ public class MacBookV2 {
         System.out.println("Hello");
     }
 
-	public MacBookV2(MacbookBasicProperty bp, MacbookExtensionProperty ep,  MacbookBasicFunction bf, extensionFunction ef) {
-		this.property = a
-		this.extensionProperty = b
-		this.basicFunction = bf
-        this.extensionFunction = ef
+	public MacBookV2(MacbookBasicProperty bp, MacbookExtensionProperty ep,  MacbookBasicFunction bf, MacbookExtensionFunction ef) {
+		this.property = bp;
+		this.extensionProperty = ep;
+		this.basicFunction = bf;
+        this.extensionFunction = ef;
 	}
 }
 
 
-public class MacbookBasicProperty implements LaptopBasicProperty {
-	String cpu
-	int size
-	TouchBar touchBar;
+class MacbookBasicProperty implements LaptopBasicProperty {
+	String cpu = "";
+	int size = 0;
 }
-public class MacbookExtensionProperty implements LaptopExtensionProperty {
-	Camera camera
+class MacbookExtensionProperty implements LaptopExtensionProperty {
+	String resolution = "";
 }
-public class MacbookBasicFunction implements LaptopBaseFunction {
-	void startUp()
-	void shutDown()
+class MacbookBasicFunction implements LaptopBaseFunction {
+	public void startUp() {};
+	public void shutDown() {};
 }
-public class MacbookExtensionFunction implements LaptopExtentionFunction {
-	void sleep()
+class MacbookExtensionFunction implements LaptopExtentionFunction {
+	public void sleep() {};
 }
 
 
 
-public interface LaptopBasicProperty {
-	String cpu 
-	int size
+interface LaptopBasicProperty {
+	String cpu = "";
+	int size = 0;
 }
-public interface LaptopExtensionProperty {
-Camera camera	
+interface LaptopExtensionProperty {
+	String resolution = "";
 }
-public interface LaptopBaseFunction {
-    
-	void startUp()
-	void shutDown()
+interface LaptopBaseFunction {
+	void startUp();
+	void shutDown();
 }
-public interface LaptopExtentionFunction {
-	void sleep()
+interface LaptopExtentionFunction {
+	void sleep();
 }
