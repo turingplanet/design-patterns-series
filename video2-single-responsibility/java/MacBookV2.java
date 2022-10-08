@@ -1,5 +1,5 @@
 public class MacBookV2 {
-	private MacbookBasicProperty property;
+	private MacbookBasicProperty basicProperty;
 	private MacbookExtensionProperty extensionProperty;
 	private MacbookBasicFunction basicFunction;
 	private MacbookExtensionFunction extensionFunction;
@@ -9,7 +9,7 @@ public class MacBookV2 {
     }
 
 	public MacBookV2(MacbookBasicProperty bp, MacbookExtensionProperty ep,  MacbookBasicFunction bf, MacbookExtensionFunction ef) {
-		this.property = bp;
+		this.basicProperty = bp;
 		this.extensionProperty = ep;
 		this.basicFunction = bf;
         this.extensionFunction = ef;
