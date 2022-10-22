@@ -8,21 +8,21 @@ public class SurfShop {
     }
 
     public void chargeCustomer(Customer c, float fee) {
-        c.getWallet().balance -= fee;
+        c.getCard().balance -= fee;
     }
 }
 
 class Customer {
 
-    private Wallet wallet = new Wallet();
+    private Card card = new Card();
 
-    public Wallet getWallet() {
-        return this.wallet;
+    public Card getCard() {
+        return this.card;
     }
 
 }
 
-class Wallet {
+class Card {
 
     public int balance = 10;
 

@@ -14,15 +14,15 @@ public class SurfShop2 {
 
 class Customer {
 
-    private Wallet wallet = new Wallet();
+    private Card card = new Card();
 
     public void pay(float fee) {
-        this.wallet.deduct(fee);
+        this.card.deduct(fee);
     }
 
 }
 
-class Wallet {
+class Card {
 
     public int balance = 10;
 
