@@ -11,14 +11,14 @@ public class CarMaker {
 
 class GasolineCar {
     public void move() {
-        System.out.println("gasolinecar move");
+        System.out.println("gasoline move");
 
     };
 }
 
 class ElectricCar {
     public void move() {
-        System.out.println("electriccar move");
+        System.out.println("electric move");
     }
 }
 
