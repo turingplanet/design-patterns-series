@@ -4,33 +4,33 @@ public class Game1 {
 
   public static void main(String[] args) {
     Monster m = new Monster();
-    m.basicAttact();
+    m.basicAttack();
     MonsterBoss b = new MonsterBoss();
-    b.magicAttact();
+    b.magicAttack();
   }
 
 }
 
 interface BadCharacterSkill {
-  public void basicAttact();
-  public void magicAttact();
+  public void basicAttack();
+  public void magicAttack();
   public void recover();
 }
 
 class Monster implements BadCharacterSkill {
-  public void basicAttact() {
-    System.out.println("Monster basic attact");
+  public void basicAttack() {
+    System.out.println("Monster basic attack");
   }
-  public void magicAttact() {};
+  public void magicAttack() {};
   public void recover() {};
 }
 
 class MonsterBoss implements BadCharacterSkill {
-  public void basicAttact() {
-    System.out.println("Boss basic attact");
+  public void basicAttack() {
+    System.out.println("Boss basic attack");
   }
-  public void magicAttact() {
-    System.out.println("Boss magic attact");
+  public void magicAttack() {
+    System.out.println("Boss magic attack");
   }
   public void recover() {
     System.out.println("Boss recover");
