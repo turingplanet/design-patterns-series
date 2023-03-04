@@ -1,4 +1,4 @@
-package v13_singleton.java;
+package v14_singleton.java;
 
 import java.util.*;
 
@@ -36,16 +36,16 @@ class CustomerServiceCenter {
         this.holiday = holiday;
     }
 
-    public void serviceCustomer() {
+    public void serveCustomer() {
         if (this.holiday) {
             // Service by holiday workers
             for (Worker worker : this.holidayWorkers) {
-                worker.serviceCustomer();
+                worker.serveCustomer();
             }
         } else {
             // Service by non-holiday workers
             for (Worker worker : this.nonHolidayWorkers) {
-                worker.serviceCustomer();
+                worker.serveCustomer();
             }
         }
     }
@@ -58,18 +58,20 @@ class Worker {
         this.name = name;
     }
 
-    public void serviceCustomer() {
-        System.out.println(this.name + " is servicing customer");
+    public void serveCustomer() {
+        System.out.println(this.name + " is serving customer");
     }
 }
 
 public class CustomerCenterMain2 {
     public static void main(String[] args) {
         CustomerServiceCenter service1 = CustomerServiceCenter.getInstance();
-        service1.serviceCustomer();
+        service1.serveCustomer();
         CustomerServiceCenter service2 = CustomerServiceCenter.getInstance();
-        service2.serviceCustomer();
-        service1.serviceCustomer();
+        service2.serveCustomer();
+        service2.setHoliday(true);
+        service1.serveCustomer();
+        service2.serveCustomer();
     }
 }
 
