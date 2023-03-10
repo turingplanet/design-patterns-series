@@ -1,19 +1,30 @@
-class FahrenheitSensor:
-    def get_temperature(self):
-        return 50  # dummy value for demo purposes
-
-class CelsiusSensor:
-    def get_temperature(self):
+# The target interface
+class CelsiusTemperature:
+    def getCTemperature(self):
         pass
 
-class FahrenheitToCelsiusAdapter(CelsiusSensor):
-    def __init__(self, fahrenheit_sensor):
-        self.fahrenheit_sensor = fahrenheit_sensor
+# The existing class that needs to be adapted
+class FahrenheitTemperature:
+    def __init__(self, temperature):
+        self.temperature = temperature
 
-    def get_temperature(self):
-        f_temp = self.fahrenheit_sensor.get_temperature()
-        c_temp = (f_temp - 32) * 5/9
-        return c_temp
+    def getTemperature(self):
+        return self.temperature
 
-sensor = FahrenheitToCelsiusAdapter(FahrenheitSensor())
-print(sensor.get_temperature())  # Output: 10.0
+# The adapter class that adapts FahrenheitTemperature to CelsiusTemperature
+class FahrenheitToCelsiusAdapter(CelsiusTemperature):
+    def __init__(self, fahrenheit):
+        self.fahrenheit = fahrenheit
+
+    def getCTemperature(self):
+        # Convert Fahrenheit to Celsius and return the temperature
+        return (self.fahrenheit.getTemperature() - 32) * 5 / 9
+
+# Client code that uses the adapter
+if __name__ == '__main__':
+    # Create a FahrenheitTemperature object with some value
+    f = FahrenheitTemperature(100)
+    # Create a FahrenheitToCelsiusAdapter object with the FahrenheitTemperature object as input
+    c = FahrenheitToCelsiusAdapter(f)
+    # Use the adapter to get the temperature in Celsius
+    print("The temperature is", c.getCTemperature(), "degrees Celsius.")

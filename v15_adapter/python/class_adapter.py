@@ -1,24 +1,22 @@
-# Adaptee class
-class FahrenheitSensor:
-    def get_temperature(self):
-        return 50  # dummy value for demo purposes
- 
-# Target interface
-class CelsiusSensor:
-    def get_temperature(self):
+class CelsiusTemperature:
+    def getCTemperature(self):
         pass
- 
-# Adapter class (subclass of Adaptee)
-class FahrenheitToCelsiusAdapter(FahrenheitSensor, CelsiusSensor):
-    def get_temperature(self):
-        f_temp = super().get_temperature()
-        return (f_temp - 32) * 5/9
- 
-# Client code
-sensor = CelsiusSensor()
-print(sensor.get_temperature())  # Output: None (default value)
- 
-sensor = FahrenheitToCelsiusAdapter()
-print(sensor.get_temperature())  # Output: 10.0
 
+class FahrenheitTemperature:
+    def __init__(self, temperature):
+        self.temperature = temperature
+
+    def getTemperature(self):
+        return self.temperature
+
+class FahrenheitToCelsiusAdapter(FahrenheitTemperature, CelsiusTemperature):
+    def __init__(self, temperature):
+        super().__init__(temperature)
+
+    def getCTemperature(self):
+        return (super().getTemperature() - 32) * 5 / 9
+
+f = FahrenheitTemperature(100)
+c = FahrenheitToCelsiusAdapter(f.getTemperature())
+print("The temperature is", c.getCTemperature(), "degrees Celsius.")
 
