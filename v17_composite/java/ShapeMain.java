@@ -1,11 +1,11 @@
 package v17_composite.java;
+import java.util.ArrayList;
+import java.util.List;
 
-// 抽象的 Shape 类，用于表示一个形状
 abstract class Shape {
     public abstract double getArea();
 }
 
-// Circle 类，表示一个圆形
 class Circle extends Shape {
     private double radius;
 
@@ -19,7 +19,6 @@ class Circle extends Shape {
     }
 }
 
-// Square 类，表示一个正方形
 class Square extends Shape {
     private double side;
 
@@ -33,7 +32,6 @@ class Square extends Shape {
     }
 }
 
-// ShapeGroup 类，表示一个形状组，可以包含其他形状或形状组
 class ShapeGroup extends Shape {
     private List<Shape> shapes = new ArrayList<>();
 

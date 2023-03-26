@@ -14,56 +14,56 @@ class Employee {
     }
 }
 
-class Department {
+class Team {
     String name;
     List<Employee> employees;
 
-    public Department(String name, List<Employee> employees) {
+    public Team(String name, List<Employee> employees) {
         this.name = name;
         this.employees = employees;
     }
 }
 
-class Team {
-    String name;
-    List<Department> departments;
-
-    public Team(String name, List<Department> departments) {
-        this.name = name;
-        this.departments = departments;
-    }
-}
-
-class Manager {
+class Department {
     String name;
     List<Team> teams;
 
-    public Manager(String name, List<Team> teams) {
+    public Department(String name, List<Team> teams) {
         this.name = name;
         this.teams = teams;
     }
 }
 
-public class NoCompositeExample {
+class Manager {
+    String name;
+    List<Department> departments;
 
-    static void printManagerNames(Manager manager) {
-        System.out.println("Manager: " + manager.name);
-        for (Team team : manager.teams) {
-            printTeamNames(team);
-        }
+    public Manager(String name, List<Department> departments) {
+        this.name = name;
+        this.departments = departments;
     }
+}
+
+public class NoCompositeExample {
 
     static void printTeamNames(Team team) {
         System.out.println("Team: " + team.name);
-        for (Department department : team.departments) {
-            printDepartmentNames(department);
+        for (Employee employee: team.employees) {
+            employee.printName();
         }
     }
 
     static void printDepartmentNames(Department department) {
         System.out.println("Department: " + department.name);
-        for (Employee employee : department.employees) {
-            employee.printName();
+        for (Team team: department.teams) {
+            printTeamNames(team);
+        }
+    }
+
+    static void printManagerNames(Manager manager) {
+        System.out.println("Manager: " + manager.name);
+        for (Department team : manager.departments) {
+            printDepartmentNames(team);
         }
     }
 
@@ -73,10 +73,10 @@ public class NoCompositeExample {
         employees.add(new Employee("Jane"));
         employees.add(new Employee("Bob"));
 
-        Department department = new Department("Engineering", employees);
-        Team team = new Team("Product", List.of(department));
-        Manager manager = new Manager("Alice", List.of(team));
-
+        Team team = new Team("Engineering", employees);
+        Department department = new Department("Product", List.of(team));
+        Manager manager = new Manager("Alice", List.of(department));
+        
         printManagerNames(manager);
     }
 }
