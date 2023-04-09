@@ -1,33 +1,66 @@
 package v19_facade.java;
 
+class Payment {
+    private double amount;
+
+    public Payment(double amount) {
+        this.amount = amount;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+}
+
+enum RefundStatus {
+    SUCCESS, FAILURE
+}
 
 class Billing {
     public Payment getPaymentForOrder(int orderId) {
-        // Implementation
+        // Simple Implementation
+        return new Payment(50.0);
     }
 
     public RefundStatus processRefund(Payment payment) {
-        // Implementation
+        // Simple Implementation
+        if (payment.getAmount() > 0) {
+            return RefundStatus.SUCCESS;
+        } else {
+            return RefundStatus.FAILURE;
+        }
     }
 }
 
 class Shipping {
     public void updateShippingAddress(int orderId, String newAddress) {
-        // Implementation
+        System.out.println("Shipping address for order " + orderId + " updated to: " + newAddress);
+    }
+}
+
+class Issue {
+    private String description;
+
+    public Issue(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
 
 class CustomerService {
     public void notifyCustomer(String message) {
-        // Implementation
+        System.out.println("Notification sent to customer: " + message);
     }
 
     public void escalateToManager(Issue issue) {
-        // Implementation
+        System.out.println("Issue escalated to manager: " + issue.getDescription());
     }
 }
 
-public class CustomerSupportFacade {
+class CustomerSupportFacade {
     private Billing billing;
     private Shipping shipping;
     private CustomerService customerService;
@@ -53,9 +86,7 @@ public class CustomerSupportFacade {
         customerService.escalateToManager(issue);
     }
 }
-
-// Usage
-public class Client {
+public class CustomerSuportClient {
     public static void main(String[] args) {
         Billing billing = new Billing();
         Shipping shipping = new Shipping();
@@ -63,6 +94,8 @@ public class Client {
 
         CustomerSupportFacade customerSupport = new CustomerSupportFacade(billing, shipping, customerService);
         customerSupport.handleRefundRequest(12345);
-        customerSupport.changeShippingAddress(12345, "New Address");
+        customerSupport.changeShippingAddress(12345, "123 New Street, New York, NY 10001");
+        Issue issue = new Issue("Product not working properly");
+        customerSupport.escalateToManager(issue);
     }
 }

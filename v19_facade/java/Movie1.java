@@ -1,10 +1,5 @@
 package v19_facade.java;
 
-
-public class Movie1 {
-    
-}
-
 class Projector {
     public void on() {
         System.out.println("Turning on the projector...");
@@ -35,7 +30,7 @@ class SoundSystem {
     }
 }
 
-public class Main {
+public class Movie1 {
     public static void main(String[] args) {
         Projector projector = new Projector();
         DVDPlayer dvdPlayer = new DVDPlayer();
