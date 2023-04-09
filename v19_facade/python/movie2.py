@@ -1,3 +1,24 @@
+class Projector:
+    def on(self):
+        print("Turning on the projector...")
+
+    def off(self):
+        print("Turning off the projector...")
+
+class DVDPlayer:
+    def play(self):
+        print("Playing the movie...")
+
+    def stop(self):
+        print("Stopping the movie...")
+
+class SoundSystem:
+    def on(self):
+        print("Turning on the sound system...")
+
+    def off(self):
+        print("Turning off the sound system...")
+
 class HomeTheaterFacade:
     def __init__(self, projector, dvd_player, sound_system):
         self.projector = projector
@@ -21,5 +42,3 @@ sound_system = SoundSystem()
 
 home_theater = HomeTheaterFacade(projector, dvd_player, sound_system)
 home_theater.watch_movie()
-
-
