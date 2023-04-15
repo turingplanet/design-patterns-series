@@ -24,6 +24,7 @@ public class ImageProxy {
 
     public void displayImage() {
         if (image == null) {
+            System.out.println("New image from URL: " + url);
             image = new RemoteImage(url);
         }
         image.displayImage();
