@@ -12,9 +12,7 @@ abstract class Logger {
     public void logMessage(int logLevel, String message) {
         if (logLevel <= level) {
             write(message);
-        }
-
-        if (nextLogger != null) {
+        } else if (nextLogger != null) {
             nextLogger.logMessage(logLevel, message);
         }
     }
@@ -69,3 +67,8 @@ public class LoggerDemo2 {
         errorLogger.logMessage(3, "This is an info message");
     }
 }
+
+
+
+
+

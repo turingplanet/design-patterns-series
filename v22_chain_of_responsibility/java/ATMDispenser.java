@@ -86,7 +86,7 @@ class Dollar10Dispenser implements DispenseChain {
     }
 }
 
-class ATMDispenser {
+public class ATMDispenser {
     private DispenseChain c1;
 
     public ATMDispenser() {
@@ -100,22 +100,19 @@ class ATMDispenser {
         c2.setNextChain(c3);
     }
 
-    public void dispenseMoney(int amount) {
-        if (amount % 10 != 0) {
+    public void dispenseMoney(Currency currency) {
+        if (currency.getAmount() % 10 != 0) {
             System.out.println("Amount should be in multiple of 10.");
             return;
         }
 
         // process the request
-        c1.dispense(new Currency(amount));
+        c1.dispense(currency);
     }
 
     public static void main(String[] args) {
         ATMDispenser atmDispenser = new ATMDispenser();
-        atmDispenser.dispenseMoney(370);
+        Currency currency = new Currency(370);
+        atmDispenser.dispenseMoney(currency);
     }
-}
-
-public class ATM {
-    
 }
