@@ -25,12 +25,14 @@ class KitchenLight implements Light {
     }
 }
 
-public class LightControllor1 {
+public class LightController1 {
     public static void main(String[] args) {
         LivingRoomLight livingRoomLight = new LivingRoomLight();
         KitchenLight kitchenLight = new KitchenLight();
 
-        livingRoomLight.on();
+        kitchenLight.on();
         kitchenLight.off();
+        livingRoomLight.on();
+        livingRoomLight.off();
     }
 }
