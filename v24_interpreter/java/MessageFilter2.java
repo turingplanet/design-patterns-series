@@ -1,7 +1,5 @@
 package v24_interpreter.java;
 
-    
-
 interface Expression {
     boolean interpret(String message);
 }
@@ -54,7 +52,7 @@ class OrExpression implements Expression {
     }
 }
 
-public class MessageFilter {
+public class MessageFilter2 {
 
     public static void main(String[] args) {
         Expression rule1 = new ContainsKeywordExpression("urgent");
